@@ -8,8 +8,8 @@ This repository contains implementations of various data structures and algorith
 ## Linked List
 
 ### Singly Linked List
-- [SinglyLinkedList.java](src/LinkedList/SinglyLinkedList.java): A generic implementation of a singly linked list in Java, supporting operations like adding, removing, and accessing elements.
-- [LinkedListInterface.java](src/LinkedList/LinkedListInterface.java): Defines the basic operations for the `LinkedList` interface.
+- [LinkedList.java](DSA-204/LinkedList/LinkedList.java): A generic implementation of a singly linked list in Java, supporting operations like adding, removing, and accessing elements.
+- [LinkedListInterface.java](DSA-CE204/LinkedList/LinkedListInterface.java): Defines the basic operations for the `LinkedList` interface.
 
 ### How to Run
 1. Clone the repository:
