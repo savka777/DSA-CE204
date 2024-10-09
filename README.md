@@ -14,5 +14,5 @@ This repository contains implementations of various data structures and algorith
 ### How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/savka777/DSA-CE204.git
 
