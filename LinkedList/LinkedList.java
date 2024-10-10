@@ -102,6 +102,50 @@ public class LinkedList<T> implements LinkedListInterface<T>{
     }
 
     @Override
+    public boolean isCycle() {
+        if (head != null) {
+            Node fast = head;
+            Node slow = head;
+            while (fast != null && fast.next != null) {
+                slow = slow.next;
+                fast = fast.next.next;
+                if (slow == fast) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void makeCycle(int index){
+        if(head != null && index >= 0 || index < size){
+            int curr_index = 0;
+            Node curr = head;
+
+            while(curr_index < index){
+                curr = curr.next;
+                curr_index++;
+            }
+            if(curr == null){
+                throw new IndexOutOfBoundsException("Index out of bound");
+            }
+            Node cycleStart = curr;
+            if(this.isCycle()){
+                throw new IllegalStateException("List already has cycle");
+            }
+
+            Node tail = cycleStart;
+            while(tail.next != null){
+                tail = tail.next;
+            }
+            tail.next = cycleStart;
+        }else{
+            throw new IndexOutOfBoundsException("Invalid index or empty list");
+        }
+    }
+
+    @Override
     public void print() {
         Node curr = head;
         while(curr != null){
