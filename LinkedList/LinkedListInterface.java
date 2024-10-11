@@ -6,7 +6,6 @@ public interface LinkedListInterface<T> {
     T get(int index);
     int size();
     boolean isEmpty();
-
     boolean isCycle();
     void makeCycle(int index);
     void print();
