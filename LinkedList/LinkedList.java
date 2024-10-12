@@ -1,6 +1,6 @@
 package LinkedList;
 public class LinkedList<T> implements LinkedListInterface<T>{
-    public class Node {
+    private class Node {
         T data;
         Node next;
         public Node(T data){
@@ -8,13 +8,12 @@ public class LinkedList<T> implements LinkedListInterface<T>{
             this.next = null;
         }
     }
-    public Node head;
-    public int size;
+    private Node head;
+    private int size;
     public LinkedList(){
         this.head = null;
         this.size = 0;
     }
-
     @Override
     public void add(T data) {
         Node newNode = new Node(data);
@@ -144,7 +143,6 @@ public class LinkedList<T> implements LinkedListInterface<T>{
             throw new IndexOutOfBoundsException("Invalid index or empty list");
         }
     }
-
     @Override
     public void print() {
         Node curr = head;

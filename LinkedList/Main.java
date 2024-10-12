@@ -1,7 +1,7 @@
 package LinkedList;
 
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();
@@ -11,13 +11,11 @@ public class main {
         list.add(5);
         list.add(4,3);
 
+//        System.out.println(list.isCycle());
+        list.makeCycle(2);
+        System.out.println(list.isCycle());
 
-        list.remove(0);
-        System.out.println(list.get(0));
-        list.print();
-        System.out.println('\n');
-        System.out.println(list.size);
-        System.out.println(list.isEmpty());
+
 
 
 
