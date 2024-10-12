@@ -7,7 +7,7 @@ This repository contains implementations of various data structures and algorith
 
 ## Linked List
 
-### Singly Linked List
+### Linked List
 - [LinkedList.java](LinkedList/LinkedList.java): A generic implementation of a singly linked list in Java, supporting operations like adding, removing, and accessing elements.
 - [LinkedListInterface.java](LinkedList/LinkedListInterface.java): Defines the basic operations for the `LinkedList` interface.
 
