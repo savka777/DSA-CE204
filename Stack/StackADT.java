@@ -1,5 +1,5 @@
 package Stack;
-public interface StackInterface<T> {
+public interface StackADT<T> {
     boolean isEmpty();
     int length();
     void push(T data);

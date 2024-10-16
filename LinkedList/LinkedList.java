@@ -1,5 +1,5 @@
 package LinkedList;
-public class LinkedList<T> implements LinkedListInterface<T>{
+public class LinkedList<T> implements LinkedListADT<T> {
     private class Node {
         T data;
         Node next;
@@ -150,5 +150,10 @@ public class LinkedList<T> implements LinkedListInterface<T>{
             System.out.print(curr.data + " ->");
             curr = curr.next;
         }
+    }
+
+    @Override
+    public void sort(){
+        //
     }
 }

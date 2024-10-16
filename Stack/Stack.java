@@ -1,6 +1,6 @@
 package Stack;
 
-public class Stack<T> implements StackInterface<T>{
+public class Stack<T> implements StackADT<T> {
 
     private class Node{
         Node next;

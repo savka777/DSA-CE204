@@ -1,5 +1,5 @@
 package LinkedList;
-public interface LinkedListInterface<T> {
+public interface LinkedListADT<T> {
     void add(T data);
     void add(T data, int index);
     void remove(int index);
@@ -8,6 +8,7 @@ public interface LinkedListInterface<T> {
     boolean isEmpty();
     boolean isCycle();
     void makeCycle(int index);
+    void sort();
     void print();
 
 }

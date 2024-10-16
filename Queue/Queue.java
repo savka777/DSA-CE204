@@ -1,6 +1,6 @@
 package Queue;
 
-public class Queue<T> implements QueueInterface<T>{
+public class Queue<T> implements QueueADT<T> {
     class Node {
         Node next;
         T data;
