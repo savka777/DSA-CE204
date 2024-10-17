@@ -6,6 +6,7 @@ This repository contains implementations of various data structures and algorith
 - [Linked List](#linked-list)
 - [Queue](#queue)
 - [Stack](#stack)
+- [Binary Search Tree](#binary-search-tree)
 
 ## Linked List
 
@@ -21,6 +22,11 @@ This repository contains implementations of various data structures and algorith
 
 - [Stack.java](Stack/Stack.java): A generic implementation of a stack in Java, supporting operations like pushing, popping, and checking the top element.
 - [StackADT.java](Stack/StackADT.java): Defines the basic operations for the `Stack` interface.
+
+## Binary Search Tree
+
+- [BinarySearchTree.java](Tree/BinarySearchTree.java): A generic implementation of a binary search tree in Java, supporting operations like insertion, deletion, and searching for elements.
+- [TreeADT.java](Tree/TeeADT.java): Defines the basic operations for the `Tree` interface.
 
 ### How to Run
 1. Clone the repository:
