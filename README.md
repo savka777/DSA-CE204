@@ -26,7 +26,7 @@ This repository contains implementations of various data structures and algorith
 ## Binary Search Tree
 
 - [BinarySearchTree.java](Tree/BinarySearchTree.java): A generic implementation of a binary search tree in Java, supporting operations like insertion, deletion, and searching for elements.
-- [TreeADT.java](Tree/TeeADT.java): Defines the basic operations for the `Tree` interface.
+- [TreeADT.java](Tree/TreeADT.java): Defines the basic operations for the `Tree` interface.
 
 ### How to Run
 1. Clone the repository:
