@@ -10,10 +10,10 @@ public class Main {
         for (Integer integer : arr) {
             BST.insert(integer);
         }
-
 //        System.out.println(BST.getLength());
 //        System.out.println(BST.search(1));
-        BST.inOrderTraversal();
-
+//        BST.inOrderTraversal();
+//        BST.preOrderTraversal();
+        BST.postOrderTraversal();
     }
 }

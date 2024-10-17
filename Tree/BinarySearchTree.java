@@ -64,13 +64,41 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
     public void inOrderTraversal() {
         inorderRecursive(root);
     }
+
+    @Override
+    public void preOrderTraversal() {
+        preOrderTraversalRecursive(root);
+    }
+
+    @Override
+    public void postOrderTraversal() {
+        postOrderTraversalRecursive(root);
+    }
+
     public void inorderRecursive(Node root){
         if(root !=null){
             inorderRecursive(root.left);
             System.out.println(root.data + " ");
             inorderRecursive(root.right);
         }
+    }
 
+    public void preOrderTraversalRecursive(Node root){
+//        root ,left, right
+        if(root != null){
+            System.out.println(root.data + " ");
+            preOrderTraversalRecursive(root.left);
+            preOrderTraversalRecursive(root.right);
+        }
+    }
+
+    public void postOrderTraversalRecursive(Node root){
+        //left, right, root
+        if(root != null){
+            postOrderTraversalRecursive(root.left);
+            postOrderTraversalRecursive(root.right);
+            System.out.println(root.data + " ");
+        }
     }
 
 
