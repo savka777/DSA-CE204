@@ -1,7 +1,5 @@
 package Tree;
 
-import java.lang.annotation.Native;
-
 public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
 
     private class Node {
@@ -62,41 +60,41 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
 
     @Override
     public void inOrderTraversal() {
-        inorderRecursive(root);
+        inorder(root);
     }
 
     @Override
     public void preOrderTraversal() {
-        preOrderTraversalRecursive(root);
+        preOrder(root);
     }
 
     @Override
     public void postOrderTraversal() {
-        postOrderTraversalRecursive(root);
+        postOrder(root);
     }
 
-    public void inorderRecursive(Node root){
+    public void inorder(Node root){
         if(root !=null){
-            inorderRecursive(root.left);
+            inorder(root.left);
             System.out.println(root.data + " ");
-            inorderRecursive(root.right);
+            inorder(root.right);
         }
     }
 
-    public void preOrderTraversalRecursive(Node root){
+    public void preOrder(Node root){
 //        root ,left, right
         if(root != null){
             System.out.println(root.data + " ");
-            preOrderTraversalRecursive(root.left);
-            preOrderTraversalRecursive(root.right);
+            preOrder(root.left);
+            preOrder(root.right);
         }
     }
 
-    public void postOrderTraversalRecursive(Node root){
+    public void postOrder(Node root){
         //left, right, root
         if(root != null){
-            postOrderTraversalRecursive(root.left);
-            postOrderTraversalRecursive(root.right);
+            postOrder(root.left);
+            postOrder(root.right);
             System.out.println(root.data + " ");
         }
     }
