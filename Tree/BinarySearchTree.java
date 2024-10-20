@@ -1,5 +1,7 @@
 package Tree;
 
+import java.util.ArrayList;
+
 public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
 
     private class Node {
@@ -73,11 +75,22 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
     }
 
     public void inorder(Node root){
+        //left, root, right
         if(root !=null){
             inorder(root.left);
             System.out.println(root.data + " ");
             inorder(root.right);
         }
+    }
+
+    public ArrayList<T> inorder(Node root, ArrayList<T> results){
+        //left, root, right
+        if(root !=null){
+            inorder(root.left,results);
+            results.add(root.data);
+            inorder(root.right);
+        }
+        return results;
     }
 
     public void preOrder(Node root){
@@ -118,6 +131,18 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
             curr = curr.left;
         }
         return curr.data;
+    }
+
+    public boolean isBST(){ // InOrder traversal solution
+        ArrayList<T> results = new ArrayList<T>();
+        results = inorder(this.root, results);
+
+        for(int i = 0; i < results.size()-1; i++){
+            if(results.get(i).compareTo(results.get(i + 1)) > 0){
+                return false;
+            }
+        }
+        return true;
     }
 
 
