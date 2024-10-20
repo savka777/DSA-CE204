@@ -13,7 +13,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
             this.right = null;
         }
     }
-
     private Node root;
     private int size;
 
@@ -97,6 +96,28 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
             postOrder(root.right);
             System.out.println(root.data + " ");
         }
+    }
+
+    public T findPredecessor(){ // Find largest in left sub-tree
+        if(this.root == null || this.root.left == null){
+            return null;
+        }
+        Node curr = this.root.left;
+        while(curr.right != null){
+            curr = curr.right;
+        }
+        return curr.data;
+    }
+
+    public T findSuccessor(){ // Find smallest in right sub-tree
+        if(this.root == null || this.root.right == null){
+            return null;
+        }
+        Node curr = this.root.right;
+        while(curr.left != null){
+            curr = curr.left;
+        }
+        return curr.data;
     }
 
 
