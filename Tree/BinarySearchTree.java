@@ -74,16 +74,16 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
         postOrder(root);
     }
 
-    public void inorder(Node root){
+    private void inorder(Node root){
         //left, root, right
         if(root !=null){
             inorder(root.left);
-            System.out.println(root.data + " ");
+            System.out.println(root.data + " " + numChildren(root));
             inorder(root.right);
         }
     }
 
-    public ArrayList<T> inorder(Node root, ArrayList<T> results){
+    private ArrayList<T> inorder(Node root, ArrayList<T> results){
         //left, root, right
         if(root !=null){
             inorder(root.left,results);
@@ -93,7 +93,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
         return results;
     }
 
-    public void preOrder(Node root){
+    private void preOrder(Node root){
 //        root ,left, right
         if(root != null){
             System.out.println(root.data + " ");
@@ -102,7 +102,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
         }
     }
 
-    public void postOrder(Node root){
+    private void postOrder(Node root){
         //left, right, root
         if(root != null){
             postOrder(root.left);
@@ -145,6 +145,9 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
         return true;
     }
 
+    public int numChildren(Node root){
+        return (root.left == null? 0: 1) + (root.right == null ? 0 : 1);
+    }
 
 
 }
