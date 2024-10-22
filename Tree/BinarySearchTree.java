@@ -149,5 +149,23 @@ public class BinarySearchTree<T extends Comparable<T>> implements TreeADT<T> {
         return (root.left == null? 0: 1) + (root.right == null ? 0 : 1);
     }
 
+    public void invertTree(){
+        this.root = invertTree(this.root);
+    }
+    private Node invertTree(Node root){
+        if(root == null){
+            return null;
+        }
+        Node tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+
+        invertTree(root.left);
+        invertTree(root.right);
+
+        return root;
+
+    }
+
 
 }
