@@ -7,6 +7,7 @@ This repository contains implementations of various data structures and algorith
 - [Queue](#queue)
 - [Stack](#stack)
 - [Binary Search Tree](#binary-search-tree)
+- [Priority Queue](#priority-queue)
 
 ## Linked List
 
@@ -27,6 +28,11 @@ This repository contains implementations of various data structures and algorith
 
 - [BinarySearchTree.java](Tree/BinarySearchTree.java): A generic implementation of a binary search tree in Java, supporting operations like insertion, deletion, and searching for elements.
 - [TreeADT.java](Tree/TreeADT.java): Defines the basic operations for the `Tree` interface.
+
+## Priority Queue
+- [PriorityQueue.java](PriorityQueue/PriorityQueue.java): A generic implementation of a priority queue using a min-heap data structure, supporting operations like enqueue with priority and dequeue of highest priority elements.
+- [PriorityQueueADT.java](PriorityQueue/PriorityQueueADT.java): Defines the basic operations for the `PriorityQueue` interface.
+
 
 ### How to Run
 1. Clone the repository:
