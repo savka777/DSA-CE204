@@ -43,7 +43,7 @@ public class PriorityQueue<T> implements PriorityQueueADT<T>{
     }
 
     @Override
-    public void enqueue(T data, int priority) {
+    public void insert(T data, int priority) {
        int curr = size;
        Item newItem = new Item(data, priority);
        itemArrayList.add(size, newItem); // add item to last position
@@ -57,7 +57,7 @@ public class PriorityQueue<T> implements PriorityQueueADT<T>{
     }
 
     @Override
-    public T dequeue() {
+    public T poll() {
 
         if(isEmpty()) throw new IllegalStateException("Priority Queue is Empty");
 

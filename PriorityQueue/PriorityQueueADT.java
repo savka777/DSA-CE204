@@ -2,8 +2,8 @@ package PriorityQueue;
 
 public interface PriorityQueueADT <T>{
 
-    void enqueue(T item, int priority);
-    T dequeue();
+    void insert(T item, int priority);
+    T poll();
     boolean isEmpty();
     int size();
 
