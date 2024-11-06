@@ -1,14 +1,17 @@
 package LinkedList;
-public class LinkedList<T> implements LinkedListADT<T> {
-    private class Node {
+
+import java.util.Comparator;
+
+public class LinkedList<T extends Comparable<T>> implements LinkedListADT<T> {
+    private class Node<T extends Comparable<T>> {
         T data;
-        Node next;
+        Node<T> next;
         public Node(T data){
             this.data = data;
             this.next = null;
         }
     }
-    private Node head;
+    private Node<T> head;
     private int size;
     public LinkedList(){
         this.head = null;
@@ -16,12 +19,12 @@ public class LinkedList<T> implements LinkedListADT<T> {
     }
     @Override
     public void add(T data) {
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node<T>(data);
 
         if(head == null){
             head = newNode;
         }else{
-            Node curr = head;
+            Node<T> curr = head;
             while(curr.next != null){
                 curr = curr.next;
             }
@@ -34,7 +37,7 @@ public class LinkedList<T> implements LinkedListADT<T> {
         if(index < 0 || index > size){
             throw new IndexOutOfBoundsException("Index out of bound");
         }
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node<T>(data);
 
         if(index == 0){
             newNode.next = head;
@@ -42,7 +45,7 @@ public class LinkedList<T> implements LinkedListADT<T> {
         }
         else{
             int curr_index = 0;
-            Node curr = head;
+            Node<T> curr = head;
 
             while(curr_index < index-1 && curr != null){
                 curr = curr.next;
@@ -63,7 +66,7 @@ public class LinkedList<T> implements LinkedListADT<T> {
         if(index == 0){
             head = head.next;
         }else{
-            Node curr = head;
+            Node<T> curr = head;
             int curr_index = 0;
 
             while(curr_index < index -1){
@@ -76,13 +79,31 @@ public class LinkedList<T> implements LinkedListADT<T> {
     }
 
     @Override
+    public void remove(T data) {
+        if(head == null) throw new IllegalStateException("List is empty");
+
+        if(head.data.compareTo(data) == 0){
+            head = head.next;
+            return;
+        }
+
+        Node<T> curr = head;
+        while(curr.next != null){
+            if(curr.next.data.compareTo(data) == 0){
+                curr.next = curr.next.next;
+                return;
+            }
+            curr = curr.next;
+        }
+    }
+    @Override
     public T get(int index) {
         if(index < 0 || index >= size){
             throw new IndexOutOfBoundsException("Index out of bound");
         }
 
         int curr_index = 0;
-        Node curr = head;
+        Node<T> curr = head;
         while(curr_index < index){
             curr = curr.next;
             curr_index++;
@@ -103,8 +124,8 @@ public class LinkedList<T> implements LinkedListADT<T> {
     @Override
     public boolean isCycle() {
         if (head != null) {
-            Node fast = head;
-            Node slow = head;
+            Node<T> fast = head;
+            Node<T> slow = head;
             while (fast != null && fast.next != null) {
                 slow = slow.next;
                 fast = fast.next.next;
@@ -120,7 +141,7 @@ public class LinkedList<T> implements LinkedListADT<T> {
     public void makeCycle(int index){
         if(head != null && index >= 0 || index < size){
             int curr_index = 0;
-            Node curr = head;
+            Node<T> curr = head;
 
             while(curr_index < index){
                 curr = curr.next;
@@ -129,12 +150,12 @@ public class LinkedList<T> implements LinkedListADT<T> {
             if(curr == null){
                 throw new IndexOutOfBoundsException("Index out of bound");
             }
-            Node cycleStart = curr;
+            Node<T> cycleStart = curr;
             if(this.isCycle()){
                 throw new IllegalStateException("List already has cycle");
             }
 
-            Node tail = cycleStart;
+            Node<T> tail = cycleStart;
             while(tail.next != null){
                 tail = tail.next;
             }
@@ -145,15 +166,36 @@ public class LinkedList<T> implements LinkedListADT<T> {
     }
     @Override
     public void print() {
-        Node curr = head;
+        Node<T> curr = head;
         while(curr != null){
             System.out.print(curr.data + " ->");
             curr = curr.next;
         }
     }
 
+    public Node<T> findMin(){
+        Node<T> minElem = this.head;
+        Node<T> curr = this.head;
+
+        while(curr.next != null){
+            curr = curr.next;
+            if(curr.data.compareTo(minElem.data) < 0) {
+                minElem = curr;
+            }
+        }
+        return minElem;
+    }
+
     @Override
     public void sort(){
-        //
+        LinkedList<T> sortedList = new LinkedList<T>();
+
+        while(this.head != null){
+            Node<T> min = this.findMin();
+            sortedList.add(min.data);
+            this.remove(min.data);
+        }
+
+        this.head = sortedList.head;
     }
 }
