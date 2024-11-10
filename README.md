@@ -16,7 +16,7 @@ This repository contains implementations of various data structures and algorith
 
 ## Queue
 
-- [Queue.java](Queue/Queue.java): A generic implementation of a queue in Java, supporting operations like adding, removing, and accessing the back element.
+- [Queue.java](Queue/Queue.java): A generic implementation of a queue in Java, supporting operations like adding, removing, and accessing.
 - [QueueADT.java](Queue/QueueADT.java): Defines the basic operations for the `Queue` interface.
 
 ## Stack
