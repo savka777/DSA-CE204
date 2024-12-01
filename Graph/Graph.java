@@ -1,6 +1,7 @@
 package Graph;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Graph {
 
@@ -44,6 +45,10 @@ public class Graph {
         this.vertices.remove(v);
     }
 
+    public ArrayList<Vertex> getVertices(){
+        return this.vertices;
+    }
+
     public boolean isDirected() {
         return isDirected;
     }
@@ -60,9 +65,11 @@ public class Graph {
         }
         return null;
     }
-    public void print(){
-        for(Vertex v: this.vertices){
-            v.print(isWeighted);
+    public void print() {
+        HashSet<String> printedEdges = new HashSet<>();
+        for (Vertex v : this.vertices) {
+            v.print(this.isWeighted, printedEdges);
         }
     }
+
 }

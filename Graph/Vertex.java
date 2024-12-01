@@ -1,6 +1,7 @@
 package Graph;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Vertex {
     // instance variables
@@ -31,29 +32,28 @@ public class Vertex {
         return this.edges;
     }
 
-    public void print(boolean isWeighted) {
+    public void print(boolean isWeighted, HashSet<String> printedEdges) {
         if (this.edges.size() == 0) {
             System.out.println(this.data + " --> [No connections]");
             return;
         }
 
-        StringBuilder message = new StringBuilder();
-        message.append(this.data).append(" --> ");
+        for (Edge edge : this.edges) {
+            String edgeId = System.identityHashCode(this) + "-" + System.identityHashCode(edge.getEnd());
+            String reverseEdgeId = System.identityHashCode(edge.getEnd()) + "-" + System.identityHashCode(this);
 
-        for (int i = 0; i < this.edges.size(); i++) {
-            message.append(this.edges.get(i).getEnd().data); // Add the target vertex
+            if (!printedEdges.contains(edgeId) && !printedEdges.contains(reverseEdgeId)) {
+                printedEdges.add(edgeId);
 
-            if (isWeighted) {
-                message.append(" (").append(this.edges.get(i).getWeight()).append(")"); // Add weight if applicable
-            }
-
-            if (i != this.edges.size() - 1) {
-                message.append(" -> "); // Add arrow for better visualization
+                System.out.print(this.data + " --> " + edge.getEnd().getData());
+                if (isWeighted) {
+                    System.out.print(" (" + edge.getWeight() + ")");
+                }
+                System.out.println();
             }
         }
-
-        System.out.println(message);
     }
+
 
 
 }

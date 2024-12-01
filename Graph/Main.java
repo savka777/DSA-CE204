@@ -1,9 +1,8 @@
 package Graph;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Stack;
+import Graph.Algorithms.DFS;
+import static Graph.Algorithms.Kruskal.makeMST;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +19,7 @@ public class Main {
 //
 //        essexCities.print();
 
-        Graph numbers = new Graph(false, true);
+        Graph numbers = new Graph(true, false);
 
         Vertex one = numbers.addVertex("1");
         Vertex two = numbers.addVertex("2");
@@ -30,32 +29,17 @@ public class Main {
         Vertex six = numbers.addVertex("6");
         Vertex seven = numbers.addVertex("7");
 
-        numbers.addEdge(one, two, 0);
-        numbers.addEdge(one, three, 0);
-        numbers.addEdge(three, four, 0);
-        numbers.addEdge(four, five, 0);
-        numbers.addEdge(five, six, 0);
-        numbers.addEdge(six, seven, 0);
+        numbers.addEdge(one, two, 3);
+        numbers.addEdge(one, three, 5);
+        numbers.addEdge(three, four, 2);
+        numbers.addEdge(four, five, 1);
+        numbers.addEdge(five, six, 4);
+        numbers.addEdge(six, seven, 6);
+        numbers.addEdge(two, four, 3);
 
-        // DFS
-        Stack<Vertex> stack = new Stack<>();
-        HashSet<Vertex> visited = new HashSet<>();
+//        DFS.dfs(one);
+        Graph mst = makeMST(numbers);
+        mst.print();
 
-        stack.push(one);
-        visited.add(one);
-
-        while(!stack.isEmpty()){
-            Vertex curr = stack.pop();
-            for(Edge e : curr.getEdges()){
-                if(!visited.contains(e.getEnd())){
-                    visited.add(e.getEnd());
-                    stack.push(e.getEnd());
-                }
-            }
-        }
-
-        for(Vertex v : visited){
-            System.out.println(v.getData());
-        }
     }
 }
